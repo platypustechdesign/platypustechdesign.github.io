@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platypus Tech and Design — AI + Instructional Design</title>
+  <meta name="description" content="Platypus Tech and Design develops AI and designs the user experience as one cohesive system. Healthcare focus, cross-industry versatility.">
+  <style>
+    :root {
+      /* Platypus-inspired palette */
+      --teal: #5B3A29;          /* rich brown — fur */
+      --teal-light: #F7F0E8;    /* warm cream — underbelly highlight */
+      --teal-dark: #3E2518;     /* deep chocolate — dark fur */
+      --dark: #2A1A10;          /* near-black brown — text */
+      --gray: #7A6B5D;          /* warm gray-brown — muted text */
+      --light-gray: #FAF6F1;    /* light warm — backgrounds */
+      --white: #FFFFFF;
+      --accent: #C8963E;        /* golden amber — underbelly */
+      --slate: #5A6875;         /* blue-gray — bill */
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      font-size: 17px;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--white);
+      border-bottom: 1px solid #E5E7EB;
+      z-index: 100;
+      padding: 0 2rem;
+    }
+    nav .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--teal);
+      text-decoration: none;
+    }
+    nav .logo span { color: var(--dark); }
+    nav .nav-links { display: flex; gap: 2rem; list-style: none; }
+    nav .nav-links a {
+      text-decoration: none;
+      color: var(--gray);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav .nav-links a:hover { color: var(--teal); }
+
+    /* HAMBURGER */
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--dark);
+      margin: 6px 0;
+      transition: 0.3s;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 10rem 2rem 6rem;
+      text-align: center;
+      background: linear-gradient(170deg, var(--teal-light) 0%, var(--white) 60%);
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.15;
+      max-width: 800px;
+      margin: 0 auto 1rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero .subtitle {
+      font-size: 1.2rem;
+      color: var(--gray);
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.5;
+    }
+    .hero .cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--teal);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--teal-dark); }
+    .btn-secondary {
+      background: var(--accent);
+      color: var(--white);
+    }
+    .btn-secondary:hover { background: #B5842F; }
+    .btn-outline {
+      border: 2px solid var(--teal);
+      color: var(--teal);
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: var(--teal);
+      color: var(--white);
+    }
+
+    /* SECTIONS */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      color: var(--gray);
+      max-width: 700px;
+      margin-bottom: 3rem;
+      font-size: 1.05rem;
+    }
+
+    /* PHILOSOPHY */
+    .philosophy { background: var(--light-gray); }
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .philosophy-text p {
+      margin-bottom: 1.2rem;
+      color: var(--dark);
+    }
+    .philosophy-visual {
+      background: var(--white);
+      border: 1px solid #E5E7EB;
+      border-radius: 12px;
+      padding: 2.5rem;
+    }
+    .compare-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1rem 0;
+    }
+    .compare-row + .compare-row { border-top: 1px solid #E5E7EB; }
+    .compare-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      width: 80px;
+      flex-shrink: 0;
+    }
+    .compare-label.them { color: var(--slate); }
+    .compare-label.us { color: var(--accent); }
+    .compare-text { font-size: 0.95rem; color: var(--dark); }
+
+    /* CAPABILITIES */
+    .capabilities-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .cap-card {
+      background: var(--white);
+      border: 1px solid #E5E7EB;
+      border-radius: 10px;
+      padding: 2rem;
+      transition: border-color 0.2s;
+    }
+    .cap-card:hover { border-color: var(--accent); }
+    .cap-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--teal-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      font-size: 1.4rem;
+    }
+    .cap-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    .cap-card p { color: var(--gray); font-size: 0.95rem; }
+    .cap-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+    .cap-tag {
+      font-size: 0.78rem;
+      background: var(--teal-light);
+      color: var(--teal);
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    /* SERVICES */
+    .services { background: var(--light-gray); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--white);
+      border: 1px solid #E5E7EB;
+      border-radius: 10px;
+      padding: 2rem;
+    }
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.6rem;
+    }
+    .service-card p { color: var(--gray); font-size: 0.9rem; }
+
+    /* INDUSTRIES */
+    .industries-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .industry-tag {
+      font-size: 0.85rem;
+      padding: 0.4rem 1rem;
+      border: 1px solid #E5E7EB;
+      border-radius: 20px;
+      color: var(--dark);
+      font-weight: 500;
+    }
+    .industry-tag.forte {
+      background: var(--accent);
+      color: var(--white);
+      border-color: var(--accent);
+    }
+
+    /* TEAM */
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .team-card {
+      background: var(--light-gray);
+      border-radius: 10px;
+      padding: 2.5rem;
+    }
+    .team-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.2rem;
+    }
+    .team-role {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .team-card p { color: var(--gray); font-size: 0.95rem; }
+
+    /* CTA BANNER */
+    .cta-banner {
+      background: var(--teal);
+      color: var(--white);
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+    .cta-banner h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .cta-banner p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-white {
+      background: var(--accent);
+      color: var(--white);
+      font-weight: 700;
+    }
+    .btn-white:hover { background: #B5842F; }
+
+    /* FOOTER */
+    footer {
+      padding: 2.5rem 2rem;
+      text-align: center;
+      color: var(--gray);
+      font-size: 0.85rem;
+      border-top: 1px solid #E5E7EB;
+    }
+    footer a { color: var(--teal); text-decoration: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .hero .subtitle { font-size: 1.05rem; }
+      .philosophy-grid,
+      .capabilities-grid,
+      .team-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      nav .nav-links { display: none; }
+      .hamburger { display: block; }
+      nav .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid #E5E7EB;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">Platypus <span>Tech & Design</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#team">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>AI + Instructional Design<br><em>for Healthcare & Beyond</em></h1>
+    <p class="subtitle">We develop the AI core and the user experience as one cohesive system — with instructional thinking embedded from architecture through deployment.</p>
+    <div class="cta-group">
+      <a href="#contact" class="btn btn-primary">Start a Conversation</a>
+      <a href="#approach" class="btn btn-outline">Our Approach</a>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section id="capabilities">
+    <div class="container">
+      <p class="section-label">What We Bring</p>
+      <h2 class="section-title">Two disciplines. One team.</h2>
+      <p class="section-desc">Every project benefits from both — whether it's a full integrated build, standalone AI development, or a focused design deliverable.</p>
+
+      <div class="capabilities-grid">
+        <div class="cap-card">
+          <div class="cap-icon">&#9881;</div>
+          <h3>AI Engineering</h3>
+          <p>Production AI systems built for real workflows — from prototype through deployment and scale. Deep experience in healthcare, with cross-industry range.</p>
+          <div class="cap-tags">
+            <span class="cap-tag">LangGraph</span>
+            <span class="cap-tag">RAG</span>
+            <span class="cap-tag">Agentic AI</span>
+            <span class="cap-tag">Python</span>
+            <span class="cap-tag">LLM Apps</span>
+            <span class="cap-tag">HIPAA</span>
+          </div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-icon">&#9998;</div>
+          <h3>Design & Instructional Development</h3>
+          <p>User experiences that make complex technology intuitive. Specialized in instructional design, healthcare training, and accessible design — with broad frontend and multimedia capability.</p>
+          <div class="cap-tags">
+            <span class="cap-tag">UI/UX</span>
+            <span class="cap-tag">Instructional Design</span>
+            <span class="cap-tag">Articulate 360</span>
+            <span class="cap-tag">Accessibility</span>
+            <span class="cap-tag">Design Systems</span>
+            <span class="cap-tag">WordPress</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- INDUSTRIES -->
+      <div style="margin-top: 3rem;">
+        <p class="section-label">Industries</p>
+        <div class="industries-bar">
+          <span class="industry-tag forte">Healthcare</span>
+          <span class="industry-tag forte">Health IT</span>
+          <span class="industry-tag">Defense</span>
+          <span class="industry-tag">Financial Services</span>
+          <span class="industry-tag">Digital Marketing</span>
+          <span class="industry-tag">Enterprise</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY / APPROACH -->
+  <section class="philosophy" id="approach">
+    <div class="container">
+      <p class="section-label">Our Approach</p>
+      <h2 class="section-title">Technology and design, developed together.</h2>
+
+      <div class="philosophy-grid">
+        <div class="philosophy-text">
+          <p>We believe technology and design must be developed together to create solutions people actually use.</p>
+          <p>Most AI projects separate backend, interface, and training across different teams — producing capable technology that organizations struggle to operationalize.</p>
+          <p>Platypus develops both as one. Instructional thinking is embedded from architecture through deployment, so technology and design ship as a unified system — ready to adopt, operate, and scale.</p>
+          <p>Healthcare is where we have the deepest combined expertise, but we work across industries.</p>
+        </div>
+        <div class="philosophy-visual">
+          <div class="compare-row">
+            <span class="compare-label them">Typical</span>
+            <span class="compare-text">Separate teams for backend, frontend, and training</span>
+          </div>
+          <div class="compare-row">
+            <span class="compare-label them">Result</span>
+            <span class="compare-text">Capable tech that teams struggle to adopt</span>
+          </div>
+          <div class="compare-row">
+            <span class="compare-label us">Platypus</span>
+            <span class="compare-text">AI core + UX designed as one cohesive system</span>
+          </div>
+          <div class="compare-row">
+            <span class="compare-label us">Result</span>
+            <span class="compare-text">Higher adoption, faster ROI, lower support costs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <p class="section-label">Services</p>
+      <h2 class="section-title">How we work with you</h2>
+      <p class="section-desc">Every project — integrated or standalone — benefits from both disciplines.</p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Integrated AI + Design</h3>
+          <p>Full-cycle engagements: AI development with instructional thinking from architecture through deployment. Technology and design ship as one.</p>
+        </div>
+        <div class="service-card">
+          <h3>AI Development</h3>
+          <p>Standalone AI engineering: RAG, agentic frameworks, LLM applications, HIPAA-compliant architectures. Informed by our design discipline.</p>
+        </div>
+        <div class="service-card">
+          <h3>Design & Training</h3>
+          <p>UI/UX, e-learning (Articulate 360), onboarding programs, compliance training, accessibility, frontend development. Informed by our technical depth.</p>
+        </div>
+        <div class="service-card">
+          <h3>Healthcare AI</h3>
+          <p>Clinical documentation AI, decision support, workflow automation, telehealth. HIPAA-aware from architecture through user education.</p>
+        </div>
+        <div class="service-card">
+          <h3>AI Training & Compliance</h3>
+          <p>AI literacy programs, HIPAA training, data governance, responsible AI. Live workshops or self-paced Articulate courses.</p>
+        </div>
+        <div class="service-card">
+          <h3>Assessments & Advisory</h3>
+          <p>AI readiness assessments, vendor evaluation, architecture reviews, and leadership workshops. Clear roadmap with prioritized recommendations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="team">
+    <div class="container">
+      <p class="section-label">About</p>
+      <h2 class="section-title">Built to deliver both sides.</h2>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <h3>AI Engineering</h3>
+          <p class="team-role">Technical Practice</p>
+          <p>LangGraph, RAG architecture, agentic frameworks, Python, LLM applications, HIPAA-compliant systems. Industry experience across healthcare, defense, financial services, digital marketing, and enterprise.</p>
+        </div>
+        <div class="team-card">
+          <h3>Design & Instructional Development</h3>
+          <p class="team-role">Design Practice</p>
+          <p>UI/UX design, interactive e-learning (Articulate Storyline/Rise 360), multimedia development, frontend web development, WordPress, accessibility, and design systems. Specialized in healthcare training and accessible design.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner" id="contact">
+    <h2>Let's build something people actually use.</h2>
+    <p>Whether you need integrated AI + design, standalone development, or focused training — we're ready.</p>
+    <a href="mailto:tech@platypustechdesign.com" class="btn btn-white">Get in Touch</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Platypus Tech and Design, Inc. &nbsp;|&nbsp; <a href="mailto:tech@platypustechdesign.com">tech@platypustechdesign.com</a></p>
+  </footer>
+
+</body>
+</html>
