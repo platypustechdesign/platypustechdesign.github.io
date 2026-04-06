@@ -349,9 +349,9 @@ section { padding: 5rem 2rem; }
     margin-right: auto;
 }
 .btn-white {
-    background: var(--accent);
+    background: transparent;
     color: var(--white);
-    font-weight: 700;
+    border: 2px solid var(--white);
 }
 .btn-white:hover { background: #ff990e; }
 
