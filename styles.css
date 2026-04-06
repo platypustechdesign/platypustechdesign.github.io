@@ -5,7 +5,7 @@
     --primary-dark: #ff8800;     /* deep chocolate — dark fur */
     --dark: #0a141e;          /* near-black blue — text */
     --gray: #5A6875;          /* warm gray-brown — muted text */
-    --light-gray: #FAF6F1;    /* light warm — backgrounds */
+    --light-gray: #eeeff1;    /* light warm — backgrounds */
     --white: #FFFFFF;
     --accent: #ed552c;        /* golden amber — underbelly */
     --slate: #5A6875;         /* blue-gray — bill */
@@ -82,7 +82,7 @@ nav .nav-links a:hover { color: var(--accent); }
 }
 
 .hero {
-    padding: 10rem 2rem 6rem;
+    padding: 15rem 2rem 10rem;
     text-align: center;
     /* background: linear-gradient(170deg, var(--dark) 0%, var(--dark) 60%); */
     position: relative;
@@ -105,7 +105,7 @@ nav .nav-links a:hover { color: var(--accent); }
 }
 .hero .subtitle {
     font-size: 1.2rem;
-    color: var(--gray);
+    color: var(--light-gray);
     max-width: 650px;
     margin: 0 auto 2.5rem;
     line-height: 1.5;
@@ -230,7 +230,7 @@ section { padding: 5rem 2rem; }
     align-items: center;
     justify-content: center;
     margin-bottom: 1.2rem;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
 }
 .cap-card h3 {
     font-size: 1.15rem;
