@@ -55,7 +55,7 @@ nav .nav-links a {
     font-weight: 500;
     transition: color 0.2s;
 }
-nav .nav-links a:hover { color: var(--accent); }
+nav .nav-links a:hover { color: var(--primary); }
 
 /* HAMBURGER */
 .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
@@ -382,7 +382,7 @@ footer a { color: var(--accent); text-decoration: none; }
     top: 64px;
     left: 0;
     right: 0;
-    background: var(--white);
+    background: var(--dark);
     padding: 1.5rem 2rem;
     border-bottom: 1px solid #E5E7EB;
     gap: 1rem;
