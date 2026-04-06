@@ -98,6 +98,7 @@ nav .nav-links a:hover { color: var(--accent); }
     line-height: 1.15;
     max-width: 800px;
     margin: 0 auto 1rem;
+    filter: drop-shadow(0 0 10px var(--dark));
 }
 .hero h1 em {
     font-style: normal;
@@ -109,6 +110,7 @@ nav .nav-links a:hover { color: var(--accent); }
     max-width: 650px;
     margin: 0 auto 2.5rem;
     line-height: 1.5;
+    filter: drop-shadow(0 0 10px var(--dark));
 }
 .hero .cta-group {
     display: flex;
@@ -127,7 +129,7 @@ nav .nav-links a:hover { color: var(--accent); }
 }
 .btn-primary {
     background: var(--primary);
-    color: var(--white);
+    color: var(--dark);
 }
 .btn-primary:hover { background: var(--primary-dark); }
 .btn-secondary {
