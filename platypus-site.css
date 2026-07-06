@@ -25,9 +25,10 @@ section{position:relative;}
 .hdr{position:sticky;top:0;z-index:50;background:transparent;transition:background .25s ease,border-color .25s ease;border-bottom:1px solid transparent;}
 .hdr.scrolled{background:rgba(18,15,13,.92);border-bottom-color:var(--hairline);}
 .hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:74px;}
-.brand{display:flex;align-items:center;gap:11px;}
+.brand{display:flex;align-items:center;gap:2px;}
 .brand .mark{width:52px;height:auto;color:var(--orange-500);--eye:var(--ink-900);}
 .brand .wm{font-family:var(--font-display);font-weight:800;font-size:18px;color:var(--text-primary);letter-spacing:-.01em;}
+.brand .wm-td{margin-left:.3em;color:var(--orange-500);}
 .nav{display:flex;align-items:center;gap:30px;}
 .nav a{font-size:14px;color:var(--text-secondary);transition:color .15s;position:relative;}
 .nav a:hover{color:var(--text-primary);}
