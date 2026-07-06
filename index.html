@@ -1,206 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Platypus Tech and Design — AI + Instructional Design</title>
-  <meta name="description" content="Platypus Tech and Design develops AI and designs the user experience as one cohesive system. Healthcare focus, cross-industry versatility.">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Platypus Tech and Design develops AI and designs the user experience as one cohesive system. Healthcare focus, cross-industry versatility.">
+<title>Platypus Tech and Design — AI + Instructional Design</title>
+<link rel="stylesheet" href="platypus-ds.css">
+<link rel="stylesheet" href="platypus-site.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@7/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@7/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <div class="nav-inner">
-      <a href="#" class="logo">
-        <img src="assets/logo_platypus_2_white.png" alt="Platypus Tech & Design" width="220">
-      </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#capabilities">Capabilities</a></li>
-        <li><a href="#approach">Approach</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#team">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+<!-- platypus mark symbol (primary mark v1) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="platypus" viewBox="0 0 222 106">
+    <rect x="38" y="40" width="150" height="22" rx="11" transform="rotate(8 113 51)" fill="currentColor"/>
+    <ellipse cx="112" cy="51" rx="49" ry="31" transform="rotate(8 112 51)" fill="currentColor"/>
+    <rect x="84" y="73" width="18" height="15" rx="7.5" fill="currentColor"/>
+    <rect x="126" y="75" width="18" height="15" rx="7.5" fill="currentColor"/>
+    <circle cx="88" cy="40" r="4.2" fill="var(--eye, var(--ink-900))"/>
+  </symbol>
+</svg>
 
-  <!-- HERO -->
-  
-  <section class="hero">
-    <video autoplay muted loop playsinline id="myVideo">
-      <source src="assets/abstract-video.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
-    </video>
-    <h1>AI + Instructional Design<br><em>for Healthcare & Beyond</em></h1>
-    <p class="subtitle">We develop the AI core and the user experience as one cohesive system — with instructional thinking embedded from architecture through deployment.</p>
-    <div class="cta-group">
-      <a href="#contact" class="btn btn-primary">Start a Conversation</a>
-      <a href="#approach" class="btn btn-outline">Our Approach</a>
+<!-- ===================== Header ===================== -->
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Platypus Tech and Design home">
+      <svg class="mark"><use href="#platypus"/></svg>
+      <span class="wm">Platypus</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#approach">Approach</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="#services">View services</a>
+      <button class="burger" id="burger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===================== Hero ===================== -->
+  <section class="hero" data-screen-label="Hero">
+    <div class="hero-bg" aria-hidden="true">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="">
+        <source src="https://platypustechdesign.github.io/assets/abstract-video.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="wrap">
+      <div class="hero-inner reveal">
+        <div class="kicker">Two disciplines · one team</div>
+        <h1>AI + Instructional Design <span class="o">for Healthcare</span> <span class="t">&amp; Beyond</span></h1>
+        <p class="lede">We develop the AI core and the user experience as one cohesive system — with instructional thinking embedded from architecture through deployment.</p>
+        <div class="actions">
+          <a class="btn btn-primary btn-lg" href="#services">View services</a>
+          <a class="btn btn-ghost btn-lg" href="#approach">Our approach</a>
+        </div>
+        <div class="tagrow">
+          <span class="tag">AI Engineering</span>
+          <span class="tag">Instructional Design</span>
+          <span class="tag">Healthcare</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- CAPABILITIES -->
-  <section id="capabilities">
-    <div class="container">
-      <p class="section-label">What We Bring</p>
-      <h2 class="section-title">Two disciplines. One team.</h2>
-      <p class="section-desc">Every project benefits from both — whether it's a full integrated build, standalone AI development, or a focused design deliverable.</p>
-
-      <div class="capabilities-grid">
-        <div class="cap-card">
-          <div class="cap-icon">&#9881;</div>
+  <!-- ===================== Capabilities ===================== -->
+  <section class="band alt" id="capabilities" data-screen-label="Capabilities">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="kicker">What we bring</div>
+        <h2 class="sec-title">Two disciplines. One team.</h2>
+        <p class="sec-intro">Every project benefits from both — whether it's a full integrated build, standalone AI development, or a focused design deliverable.</p>
+      </div>
+      <div class="cap-grid">
+        <div class="reveal cap-card t-teal">
+          <div class="cap-ic"><ion-icon name="hardware-chip-outline"></ion-icon></div>
           <h3>AI Engineering</h3>
           <p>Production AI systems built for real workflows — from prototype through deployment and scale. Deep experience in healthcare, with cross-industry range.</p>
-          <div class="cap-tags">
-            <span class="cap-tag">LangGraph</span>
-            <span class="cap-tag">RAG</span>
-            <span class="cap-tag">Agentic AI</span>
-            <span class="cap-tag">Python</span>
-            <span class="cap-tag">LLM Apps</span>
-            <span class="cap-tag">HIPAA</span>
+          <div class="tagrow">
+            <span class="tag">LangGraph</span>
+            <span class="tag">RAG</span>
+            <span class="tag">Agentic AI</span>
+            <span class="tag">Python</span>
+            <span class="tag">LLM Apps</span>
+            <span class="tag">HIPAA</span>
           </div>
         </div>
-        <div class="cap-card">
-          <div class="cap-icon">&#9998;</div>
-          <h3>Design & Instructional Development</h3>
+        <div class="reveal cap-card t-orange">
+          <div class="cap-ic"><ion-icon name="color-palette-outline"></ion-icon></div>
+          <h3>Design &amp; Instructional Development</h3>
           <p>User experiences that make complex technology intuitive. Specialized in instructional design, healthcare training, and accessible design — with broad frontend and multimedia capability.</p>
-          <div class="cap-tags">
-            <span class="cap-tag">UI/UX</span>
-            <span class="cap-tag">Instructional Design</span>
-            <span class="cap-tag">Articulate 360</span>
-            <span class="cap-tag">Accessibility</span>
-            <span class="cap-tag">Design Systems</span>
-            <span class="cap-tag">WordPress</span>
+          <div class="tagrow">
+            <span class="tag">UI/UX</span>
+            <span class="tag">Instructional Design</span>
+            <span class="tag">Articulate 360</span>
+            <span class="tag">Accessibility</span>
+            <span class="tag">Design Systems</span>
+            <span class="tag">WordPress</span>
           </div>
         </div>
       </div>
-
-      <!-- INDUSTRIES -->
-      <div style="margin-top: 3rem;">
-        <p class="section-label">Industries</p>
-        <div class="industries-bar">
-          <span class="industry-tag forte">Healthcare</span>
-          <span class="industry-tag forte">Health IT</span>
-          <span class="industry-tag">Defense</span>
-          <span class="industry-tag">Financial Services</span>
-          <span class="industry-tag">Digital Marketing</span>
-          <span class="industry-tag">Enterprise</span>
+      <div class="reveal industries">
+        <span class="lbl">Industries</span>
+        <div class="list">
+          <span class="tag">Healthcare</span>
+          <span class="tag">Health IT</span>
+          <span class="tag">Defense</span>
+          <span class="tag">Financial Services</span>
+          <span class="tag">Digital Marketing</span>
+          <span class="tag">Enterprise</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PHILOSOPHY / APPROACH -->
-  <section class="philosophy" id="approach">
-    <div class="container">
-      <p class="section-label">Our Approach</p>
-      <h2 class="section-title">Technology and design, developed together.</h2>
-
-      <div class="philosophy-grid">
-        <div class="philosophy-text">
+  <!-- ===================== Approach ===================== -->
+  <section class="band" id="approach" data-screen-label="Approach">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="kicker">Our approach</div>
+        <h2 class="sec-title">Technology and design, developed together.</h2>
+      </div>
+      <div class="reveal approach-copy">
+        <div>
           <p>We believe technology and design must be developed together to create solutions people actually use.</p>
           <p>Most AI projects separate backend, interface, and training across different teams — producing capable technology that organizations struggle to operationalize.</p>
+        </div>
+        <div>
           <p>Platypus develops both as one. Instructional thinking is embedded from architecture through deployment, so technology and design ship as a unified system — ready to adopt, operate, and scale.</p>
           <p>Healthcare is where we have the deepest combined expertise, but we work across industries.</p>
         </div>
-        <div class="philosophy-visual">
-          <div class="compare-row">
-            <span class="compare-label them">Typical</span>
-            <span class="compare-text">Separate teams for backend, frontend, and training</span>
+      </div>
+      <div class="compare">
+        <div class="reveal cmp typical">
+          <div class="tag-k">Typical</div>
+          <div class="headline">Separate teams for backend, frontend, and training.</div>
+          <div class="result">
+            <span class="rl">Result</span>
+            <span class="rt">Capable tech that teams struggle to adopt.</span>
           </div>
-          <div class="compare-row">
-            <span class="compare-label them">Result</span>
-            <span class="compare-text">Capable tech that teams struggle to adopt</span>
-          </div>
-          <div class="compare-row">
-            <span class="compare-label us">Platypus</span>
-            <span class="compare-text">AI core + UX designed as one cohesive system</span>
-          </div>
-          <div class="compare-row">
-            <span class="compare-label us">Result</span>
-            <span class="compare-text">Higher adoption, faster ROI, lower support costs</span>
+        </div>
+        <div class="reveal cmp platypus">
+          <div class="tag-k"><svg style="width:18px;height:auto;color:var(--orange-500);--eye:var(--ink-800)"><use href="#platypus"/></svg> Platypus</div>
+          <div class="headline">AI core + UX designed as one cohesive system.</div>
+          <div class="result">
+            <span class="rl">Result</span>
+            <span class="rt">Higher adoption, faster ROI, lower support costs.</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="services" id="services">
-    <div class="container">
-      <p class="section-label">Services</p>
-      <h2 class="section-title">How we work with you</h2>
-      <p class="section-desc">Every project — integrated or standalone — benefits from both disciplines.</p>
-
-      <div class="services-grid">
-        <div class="service-card">
+  <!-- ===================== Services ===================== -->
+  <section class="band alt" id="services" data-screen-label="Services">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="kicker">Services</div>
+        <h2 class="sec-title">How we work with you</h2>
+        <p class="sec-intro">Every project — integrated or standalone — benefits from both disciplines.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="reveal svc-card">
+          <div class="svc-num"><span>01</span><span class="accent"></span></div>
           <h3>Integrated AI + Design</h3>
           <p>Full-cycle engagements: AI development with instructional thinking from architecture through deployment. Technology and design ship as one.</p>
         </div>
-        <div class="service-card">
+        <div class="reveal svc-card">
+          <div class="svc-num"><span>02</span><span class="accent"></span></div>
           <h3>AI Development</h3>
           <p>Standalone AI engineering: RAG, agentic frameworks, LLM applications, HIPAA-compliant architectures. Informed by our design discipline.</p>
         </div>
-        <div class="service-card">
-          <h3>Design & Training</h3>
+        <div class="reveal svc-card">
+          <div class="svc-num"><span>03</span><span class="accent"></span></div>
+          <h3>Design &amp; Training</h3>
           <p>UI/UX, e-learning (Articulate 360), onboarding programs, compliance training, accessibility, frontend development. Informed by our technical depth.</p>
         </div>
-        <div class="service-card">
+        <div class="reveal svc-card">
+          <div class="svc-num"><span>04</span><span class="accent"></span></div>
           <h3>Healthcare AI</h3>
           <p>Clinical documentation AI, decision support, workflow automation, telehealth. HIPAA-aware from architecture through user education.</p>
         </div>
-        <div class="service-card">
-          <h3>AI Training & Compliance</h3>
+        <div class="reveal svc-card">
+          <div class="svc-num"><span>05</span><span class="accent"></span></div>
+          <h3>AI Training &amp; Compliance</h3>
           <p>AI literacy programs, HIPAA training, data governance, responsible AI. Live workshops or self-paced Articulate courses.</p>
         </div>
-        <div class="service-card">
-          <h3>Assessments & Advisory</h3>
-          <p>AI readiness assessments, vendor evaluation, architecture reviews, and leadership workshops. Clear roadmap with prioritized recommendations.</p>
+        <div class="reveal svc-card">
+          <div class="svc-num"><span>06</span><span class="accent"></span></div>
+          <h3>Assessments &amp; Advisory</h3>
+          <p>AI readiness assessments, vendor evaluation, architecture reviews, and leadership workshops. A clear roadmap with prioritized recommendations.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="team">
-    <div class="container">
-      <p class="section-label">About</p>
-      <h2 class="section-title">Built to deliver both sides.</h2>
-
-      <div class="team-grid">
-        <div class="team-card">
+  <!-- ===================== About ===================== -->
+  <section class="band" id="about" data-screen-label="About">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="kicker">About</div>
+        <h2 class="sec-title">Built to deliver both sides.</h2>
+      </div>
+      <div class="about-grid">
+        <div class="reveal prac t-teal">
+          <div class="ey">Technical Practice</div>
           <h3>AI Engineering</h3>
-          <p class="team-role">Technical Practice</p>
-          <p>LangGraph, RAG architecture, agentic frameworks, Python, LLM applications, HIPAA-compliant systems. Industry experience across healthcare, defense, financial services, digital marketing, and enterprise.</p>
+          <p>LangGraph, RAG architecture, agentic frameworks, Python, LLM applications, and HIPAA-compliant systems. Industry experience across healthcare, defense, financial services, digital marketing, and enterprise.</p>
         </div>
-        <div class="team-card">
-          <h3>Design & Instructional Development</h3>
-          <p class="team-role">Design Practice</p>
+        <div class="reveal prac t-orange">
+          <div class="ey">Design Practice</div>
+          <h3>Design &amp; Instructional Development</h3>
           <p>UI/UX design, interactive e-learning (Articulate Storyline/Rise 360), multimedia development, frontend web development, WordPress, accessibility, and design systems. Specialized in healthcare training and accessible design.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-banner" id="contact">
-    <video autoplay muted loop playsinline class="myVideo">
-      <source src="assets/dark-orange-gradient.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
+  <!-- ===================== Contact ===================== -->
+  <section class="contact" id="contact" data-screen-label="Contact">
+    <video class="glow-video" autoplay muted loop playsinline preload="auto">
+      <source src="https://platypustechdesign.github.io/assets/dark-orange-gradient.mp4" type="video/mp4">
     </video>
-    <h2>Let's build something people enjoy using.</h2>
-    <p>Whether you need integrated AI + design, standalone development, or focused training — we're ready.</p>
-    <a href="mailto:tech@platypustechdesign.com" class="btn btn-white">Get in Touch</a>
+    <div class="glow"></div>
+    <div class="wrap reveal">
+      <h2>Let's build something people enjoy using.</h2>
+      <p>Whether you need integrated AI + design, standalone development, or focused training — we're ready.</p>
+      <div class="actions">
+        <a class="btn btn-primary btn-lg" href="mailto:tech@platypustechdesign.com">Get in touch</a>
+        <a class="btn btn-secondary btn-lg" href="#services">View services</a>
+      </div>
+    </div>
   </section>
+</main>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2026 Platypus Tech and Design, Inc. &nbsp;|&nbsp; <a href="mailto:tech@platypustechdesign.com">tech@platypustechdesign.com</a></p>
-  </footer>
+<!-- ===================== Footer ===================== -->
+<footer class="ftr">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg class="mark" style="width:46px;height:auto;color:var(--orange-500);--eye:var(--ink-900)"><use href="#platypus"/></svg>
+      <span class="wm">Platypus</span>
+    </a>
+    <div class="meta">© <span id="yr">2026</span> Platypus Tech and Design, Inc. · <a href="mailto:tech@platypustechdesign.com">tech@platypustechdesign.com</a></div>
+  </div>
+</footer>
 
+<script>
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // sticky header bg on scroll
+  const hdr = document.getElementById('hdr');
+  const onScroll = () => hdr.classList.toggle('scrolled', window.scrollY > 12);
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  // mobile nav
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('nav');
+  burger.addEventListener('click', () => nav.classList.toggle('open'));
+  nav.addEventListener('click', e => { if(e.target.tagName==='A') nav.classList.remove('open'); });
+
+  // scroll reveal (staggered within a section)
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((en, i) => {
+      if(en.isIntersecting){
+        en.target.style.transitionDelay = (en.target.dataset.delay || (Math.min(i,1)*0.08)) + 's';
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      }
+    });
+  }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.dataset.delay = ((i % 3) * 0.07).toFixed(2);
+    io.observe(el);
+  });
+</script>
 </body>
 </html>

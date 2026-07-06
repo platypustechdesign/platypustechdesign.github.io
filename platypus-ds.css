@@ -1,0 +1,209 @@
+/* ============================================================
+   PLATYPUS TECH AND DESIGN — Design System tokens & base
+   Evolved from the platypustechdesign.github.io brand:
+   warm near-black canvas, Platypus Orange primary,
+   Signal Blue secondary (the AI/clinical counterpart).
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* ---- Canvas (warm, orange-tinted darks) ---- */
+  --ink-900:#120F0D;   /* page */
+  --ink-850:#171310;   /* deep panel */
+  --ink-800:#1E1813;   /* surface */
+  --ink-750:#251E18;   /* surface raised */
+  --ink-700:#2E251E;   /* hover surface */
+  --hairline:#2A221C;  /* faint divider */
+  --border:#3A2F27;    /* card edge */
+  --border-strong:#4A3C32;
+
+  /* ---- Platypus Orange (human / design / instructional) ---- */
+  --orange-300:#FFB489;
+  --orange-400:#FF9059;
+  --orange-500:#FF6A2C;  /* PRIMARY */
+  --orange-600:#ED5414;
+  --orange-700:#BF400C;
+  --orange-tint-08:rgba(255,106,44,0.08);
+  --orange-tint-15:rgba(255,106,44,0.15);
+  --orange-tint-30:rgba(255,106,44,0.30);
+
+  /* ---- Signal Blue (AI / clinical / precise) ---- */
+  --teal-300:#84C9F2;
+  --teal-400:#40A6E8;
+  --teal-500:#1B88D4;  /* SECONDARY */
+  --teal-600:#146BAA;
+  --teal-700:#0E4F80;
+  --teal-tint-08:rgba(27,136,212,0.08);
+  --teal-tint-15:rgba(27,136,212,0.15);
+  --teal-tint-30:rgba(27,136,212,0.30);
+
+  /* ---- Text (warm whites → dim) ---- */
+  --text-primary:#FBF6F1;
+  --text-secondary:#D9CEC4;
+  --text-muted:#A89A8C;
+  --text-dim:#776A5E;
+  --text-onAccent:#1A1006;
+
+  /* ---- Semantic ---- */
+  --success:#33C77B;
+  --warning:#F5A524;
+  --error:#F2543D;
+  --info:#40A6E8;
+
+  /* ---- Type ---- */
+  --font-display:'Hanken Grotesk', system-ui, sans-serif;
+  --font-body:'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono:'IBM Plex Mono', ui-monospace, monospace;
+
+  --fs-display-xl:64px;
+  --fs-display:44px;
+  --fs-h1:32px;
+  --fs-h2:24px;
+  --fs-h3:18px;
+  --fs-body-lg:18px;
+  --fs-body:16px;
+  --fs-small:14px;
+  --fs-caption:13px;
+  --fs-eyebrow:12px;
+
+  /* ---- Spacing (base 4) ---- */
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px;
+  --s-5:24px; --s-6:32px; --s-7:48px; --s-8:64px; --s-9:96px;
+
+  /* ---- Radii ---- */
+  --r-sm:6px; --r-md:10px; --r-lg:14px; --r-xl:20px; --r-pill:999px;
+
+  /* ---- Elevation ---- */
+  --shadow-sm:0 1px 2px rgba(0,0,0,.4);
+  --shadow-md:0 8px 24px rgba(0,0,0,.45);
+  --shadow-glow:0 0 0 1px var(--orange-tint-30), 0 12px 40px rgba(255,106,44,.12);
+}
+
+/* ============================================================
+   LIGHT THEME — warm paper canvas, same Platypus Orange + Signal
+   Teal brand colors. Text & tint-foregrounds darkened for contrast.
+   Applied via <html data-theme="light">.
+   ============================================================ */
+[data-theme="light"]{
+  --ink-900:#F4EEE6;   /* page (warm paper) */
+  --ink-850:#FBF8F2;   /* sidebar / deep panel */
+  --ink-800:#FFFFFF;   /* surface / cards */
+  --ink-750:#F8F2EA;   /* raised */
+  --ink-700:#F0E8DD;   /* hover */
+  --hairline:#ECE3D6;
+  --border:#E3D8C9;
+  --border-strong:#D3C4B1;
+
+  --text-primary:#1E1712;
+  --text-secondary:#4F453B;
+  --text-muted:#7E7163;
+  --text-dim:#A99B8B;
+
+  --shadow-sm:0 1px 2px rgba(40,28,14,.08);
+  --shadow-md:0 10px 30px rgba(60,40,20,.10);
+  --shadow-glow:0 0 0 1px var(--orange-tint-30), 0 12px 40px rgba(255,106,44,.14);
+}
+/* tint foregrounds need darker ink on a light canvas */
+[data-theme="light"] .btn-secondary{color:var(--teal-700);}
+[data-theme="light"] .tag-orange{color:var(--orange-700);}
+[data-theme="light"] .tag-teal{color:var(--teal-700);}
+[data-theme="light"] .badge-info{color:var(--teal-700);}
+[data-theme="light"] .badge-success{color:#1F9D5E;background:rgba(51,199,123,.14);}
+[data-theme="light"] .badge-warning{color:#B9791A;background:rgba(245,165,36,.16);}
+[data-theme="light"] .cover h1 .t{color:var(--teal-600);}
+[data-theme="light"] .voice .yes .tagk{color:var(--teal-700);}
+
+/* ============================================================
+   Base
+   ============================================================ */
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--ink-900);
+  color:var(--text-secondary);
+  font-family:var(--font-body);
+  font-size:var(--fs-body);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--text-primary);margin:0;line-height:1.1;font-weight:700;letter-spacing:-0.02em;}
+p{margin:0;}
+a{color:inherit;text-decoration:none;}
+::selection{background:var(--orange-tint-30);color:var(--text-primary);}
+
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:var(--fs-eyebrow);
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--text-dim);
+  font-weight:500;
+}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums;}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn{
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  font-family:var(--font-body);font-size:var(--fs-small);font-weight:600;
+  padding:11px 20px;border-radius:var(--r-pill);border:1px solid transparent;
+  cursor:pointer;transition:opacity .15s ease,transform .15s ease,background .15s ease;
+  white-space:nowrap;
+}
+.btn:active{transform:translateY(1px);}
+.btn-primary{background:var(--orange-500);color:var(--text-onAccent);}
+.btn-primary:hover{background:var(--orange-400);}
+.btn-secondary{background:var(--teal-tint-15);color:var(--teal-300);border-color:var(--teal-tint-30);}
+.btn-secondary:hover{background:var(--teal-tint-30);}
+.btn-ghost{background:transparent;color:var(--text-secondary);border-color:var(--border);}
+.btn-ghost:hover{border-color:var(--border-strong);color:var(--text-primary);}
+
+/* ============================================================
+   Tags / chips (the technical capability tags)
+   ============================================================ */
+.tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--font-mono);font-size:var(--fs-caption);font-weight:500;
+  padding:5px 11px;border-radius:var(--r-sm);
+  background:var(--ink-800);border:1px solid var(--border);color:var(--text-muted);
+}
+.tag-orange{background:var(--orange-tint-08);border-color:var(--orange-tint-30);color:var(--orange-300);}
+.tag-teal{background:var(--teal-tint-08);border-color:var(--teal-tint-30);color:var(--teal-300);}
+
+/* ============================================================
+   Cards (two-layer motif)
+   ============================================================ */
+.card{
+  background:var(--ink-800);border:1px solid var(--border);border-radius:var(--r-lg);
+  padding:var(--s-5);
+}
+.card-deep{background:var(--ink-850);border-radius:var(--r-md);padding:var(--s-4);}
+
+/* ============================================================
+   Inputs
+   ============================================================ */
+.field-label{display:block;font-size:var(--fs-small);color:var(--text-secondary);margin-bottom:var(--s-2);font-weight:500;}
+.input{
+  width:100%;background:var(--ink-850);border:1px solid var(--border);color:var(--text-primary);
+  font-family:var(--font-body);font-size:var(--fs-body);padding:11px 14px;border-radius:var(--r-md);
+  transition:border-color .15s ease,box-shadow .15s ease;
+}
+.input::placeholder{color:var(--text-dim);}
+.input:focus{outline:none;border-color:var(--orange-tint-30);box-shadow:0 0 0 3px var(--orange-tint-08);}
+
+/* ============================================================
+   Badges
+   ============================================================ */
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:var(--fs-eyebrow);font-weight:600;letter-spacing:.04em;
+  padding:3px 9px;border-radius:var(--r-pill);
+}
+.badge-dot{width:6px;height:6px;border-radius:50%;}
+.badge-success{background:rgba(51,199,123,.12);color:var(--success);}
+.badge-warning{background:rgba(245,165,36,.12);color:var(--warning);}
+.badge-info{background:var(--teal-tint-15);color:var(--teal-300);}
